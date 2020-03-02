@@ -10,7 +10,7 @@ const passport = require('passport');
 require('dotenv').config();
 
 const indexRouter = require("./routes/index");
-const tktksRouter = require("./routes/tktks");
+const eventsRouter = require("./routes/events");
 const usersRouter = require('./routes/users');
 
 require("./config/database");
@@ -39,7 +39,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/tktks", tktksRouter);
+app.use("/events", eventsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
