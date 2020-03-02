@@ -24,7 +24,7 @@ function index(req, res, next) {
 
 function create(req, res) {
   console.log(req.body)
-  const Event = new Event(req.body);
+  const event = new Event(req.body);
   event.save(function(err) {
     if (err) return res.render('events/new', {user: req.user});
     console.log(event);

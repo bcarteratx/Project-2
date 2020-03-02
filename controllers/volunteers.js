@@ -2,8 +2,8 @@ const Volunteer = require("../models/volunteer.js");
 
 module.exports = {
   index,
-//   create,
-//   new: newVolunteer,
+  create,
+  new: newVolunteer,
 };
 
 function index(req, res, next) {
@@ -20,16 +20,16 @@ function index(req, res, next) {
   });
 }
 
-// function create(req, res) {
-//   console.log(req.body)
-//   const Volunteer = new Volunteer(req.body);
-//   volunteer.save(function(err) {
-//     if (err) return res.render('volunteers/new', {user: req.user});
-//     console.log(volunteer);
-//     res.redirect('/volunteers');
-//   });
-// }
+function create(req, res) {
+  console.log(req.body)
+  const Volunteer = new Volunteer(req.body);
+  volunteer.save(function(err) {
+    if (err) return res.render('volunteers/new', {user: req.user});
+    console.log(volunteer);
+    res.redirect('/volunteers');
+  });
+}
 
-// function newVolunteer(req, res) {
-//   res.render('volunteers/new', { user: req.user});
-// }
+function newVolunteer(req, res) {
+  res.render('volunteers/new', { user: req.user});
+}

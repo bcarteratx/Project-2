@@ -1,20 +1,29 @@
 <%- include('../partials/header') %>
     <h4>Add an Event</h4>
 <form action="/events" method="POST">
-	<label>Event Type:
-        <select name="eventType">
-          <option value="Trail Run">Trail Run</option>
-          <option value="Cleanup">Cleanup</option>
-        </select>
-      </label><br>
+  <!-- <div class="input-field col s12">
+	  <label>Event Type:
+      <select name="eventType">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="Trail Run">Trail Run</option>
+        <option value="Cleanup">Cleanup</option>
+      </select>
+    </label><br> -->
+  </div>
 	<label>Location:
 	  <input type="text" name="location">
 	</label><br>
 	<label>Start time:
 	  <input type="datetime-local" name="startTime">
-    </label><br>
-    <label>Volunteers:
-        <input type="text" name="volunteers">
+  </label><br>
+  <label>Volunteers:
+    <input type="text" name="volunteers">
+      </label><br>
+  <label>Trash Collected:
+    <input type="text" name="trashLbs">
+      </label><br>
+  <label>Miles Run:
+    <input type="text" name="miles">
       </label><br>
   <input type="submit" value="Add Event">
 </form>

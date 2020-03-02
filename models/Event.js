@@ -14,10 +14,14 @@ const eventSchema = new Schema({
  	startTime: {
         type: Date,
         },
-   volunteers: {
+    volunteers: {
         type: String,
         required: true,
      },
+    trashLbs: {
+        type: Number
+    }
+
 });
 
 module.exports = mongoose.model("Event", eventSchema);

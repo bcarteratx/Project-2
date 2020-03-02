@@ -4,7 +4,7 @@ const eventsCtrl = require('../controllers/events');
 
 router.get('/', eventsCtrl.index);
 router.get('/new', eventsCtrl.new);
-router.post('/events', isLoggedIn, eventsCtrl.create);
+router.post('/', isLoggedIn, eventsCtrl.create);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();
