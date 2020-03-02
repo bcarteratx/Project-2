@@ -12,6 +12,7 @@ require('dotenv').config();
 const indexRouter = require("./routes/index");
 const eventsRouter = require("./routes/events");
 const usersRouter = require('./routes/users');
+const volunteersRouter = require('./routes/volunteers')
 
 require("./config/database");
 // oauth
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/events", eventsRouter);
 app.use('/users', usersRouter);
+app.use('/volunteers', volunteersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

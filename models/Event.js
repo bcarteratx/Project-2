@@ -8,7 +8,6 @@ const eventSchema = new Schema({
     },
     eventType: {
         type: String,
-        required: true,
         enum: ["Trail Run", "Cleanup"],
         default: "Cleanup"
      },

@@ -26,7 +26,7 @@ function create(req, res) {
   console.log(req.body)
   const Event = new Event(req.body);
   event.save(function(err) {
-    if (err) return res.render('event/new', {user: req.user});
+    if (err) return res.render('events/new', {user: req.user});
     console.log(event);
     res.redirect('/events');
   });

@@ -1,11 +1,6 @@
 <%- include('../partials/header') %>
-<div>
-    <a href="/events">Past Events</a>
-    <a href="/events/new">ADD EVENT</a>
-    <a href="/volunteers">Volunteers</a>
-</div>
-<h1>Events Page</h1>
-<a href="/events/new">ADD EVENT</a>
+
+<h3>Events Page</h3>
 <% if (events.length) { %>
     <% events.forEach(function(e, idx) { %>
         <div>
@@ -18,7 +13,7 @@
         </div><br>
         <% }) %>
         <% } else { %>
-            <h3>No events have been created</h3>
+            <h5>No events have been created</h5>
 
     <% } %>
 
