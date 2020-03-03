@@ -8,7 +8,6 @@ const eventSchema = new Schema({
     },
     eventType: {
         type: String,
-        enum: ["Group Run", "Cleanup"],
         default: "Cleanup"
     },
  	startTime: {
@@ -26,6 +25,10 @@ const eventSchema = new Schema({
     },
     archive: {
         type: Boolean
+    },
+    img: {
+        type: String,
+        default: "TTR_logo.png"
     },
 
 });

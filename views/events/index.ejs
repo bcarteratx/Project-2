@@ -2,29 +2,29 @@
 
 <h3>Events Page</h3>
 <% if (events.length) { %>
-  <table id="list">
-    <thead>
-      <tr>
-        <th>Location</th>
-        <th>Type of Event</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <% events.forEach(function(e, idx) { %>
-      <tbody>
-        <tr>
-          <td><%= e.eventType %></td>
-          <td><%= e.location %></td>
-          <td><%= e.startTime %></td>
-          <td><a href="/events/<%= e._id %>">DETAILS</a></td>
-          <td>
-            <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
-            <button type="submit" id="deletebtn">X</button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<% events.forEach(function(e, idx) { %>   
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="../images/<%= e.img %>">
+          <span class="card-title"><%= e.eventType %> at <%= e.location %></span>
+        </div>
+        <div class="card-content">
+          <p><%= e.startTime %><br>
+           We ran <%= e.miles %> miles, and picked up <%= e.trashLbs %> pounds of trash!
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="/events/<%= e._id %>">DETAILS</a>
+          <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
+          <button type="submit" id="deletebtn">X</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+</form>
+          
 <% }) %>
   <% } else { %>
     <h5>No events have been created</h5>

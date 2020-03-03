@@ -3,8 +3,11 @@ const Schema = mongoose.Schema;
 
 const volunteerSchema = new Schema({
     name: String,
+    adult: Boolean,
     email: String,
-    hoursServed: Number
+    formSigned: Date,
+    formExpires: Date,
+    hours: Number
 });
 
 module.exports = mongoose.model("Volunteer", volunteerSchema);

@@ -5,7 +5,7 @@ module.exports = {
   create,
   new: newEvent,
   show,
-  delete: deleteOne,
+  deleteOne,
 };
 
 function index(req, res, next) {
@@ -40,12 +40,12 @@ function newEvent(req, res) {
 
 function show(req, res) {
   Event.findById(req.params.id, function(err, event) {
-      res.render('events/show', { user: req.user});
+    res.render('events/show', { user: req.user});
   });
 }
 
 function deleteOne(req, res) {
   Event.findByIdAndDelete(req.params.id, function(err, event) {
-    res.redirect('/event');
+    res.redirect('/events');
   });
 }

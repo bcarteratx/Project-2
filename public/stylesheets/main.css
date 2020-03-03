@@ -11,3 +11,23 @@ a {
   background-color: red;
   color: white;
 }
+.left {
+  display: inline;
+  margin: auto;
+}
+
+.card-action {
+  display: inline;
+}
+
+.logo {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+/* resize images */
+.logo img {
+  width: 100%;
+  height: auto;
+}

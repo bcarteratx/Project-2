@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS Framework -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="stylesheets/main.css" />
   <!-- JavaScript for Materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
@@ -18,13 +18,11 @@
       <div class="nav-wrapper">
         <a href="" class="brand-logo left">TTR</a>
         <ul class="right">
-          <li>
-          <% if (user) { %>
-            <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-          <% } else { %>
-            <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-          <% } %>
-          </li>
+            <div>
+                <a href="/events">Events Archive</a>
+                <a href="/events/new">ADD EVENT</a>
+                <a href="/Volunteers">Volunteers</a>
+            </div> 
         </ul>
       </div>
     </nav>
@@ -32,7 +30,7 @@
   <main>
 
 <h1>TTR Index Page</h1>
-
+<img class="logo" src="/images/TTR_logo.png" alt="TTR Logo">
 </main>  
 </body>
 </html>
