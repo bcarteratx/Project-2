@@ -6,3 +6,8 @@ a {
   display: inline;
   margin: 30px;
 }
+
+#deletebtn {
+  background-color: red;
+  color: white;
+}

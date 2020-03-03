@@ -10,17 +10,23 @@ const eventSchema = new Schema({
         type: String,
         enum: ["Trail Run", "Cleanup"],
         default: "Cleanup"
-     },
+    },
  	startTime: {
         type: Date,
-        },
+    },
     volunteers: {
         type: String,
         required: true,
-     },
+    },
     trashLbs: {
         type: Number
-    }
+    },
+    miles: {
+        type: Number
+    },
+    imageURL: {
+        type: String
+    },
 
 });
 

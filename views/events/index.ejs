@@ -2,20 +2,32 @@
 
 <h3>Events Page</h3>
 <% if (events.length) { %>
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Type of Event</th>
+        <th>Date</th>
+      </tr>
+    </thead>
     <% events.forEach(function(e, idx) { %>
-        <div>
-            <form action="/events/<%= idx %>?_method=DELETE" method="POST">
-                <button type="submit" id="deletebtn">X</button>
+      <tbody>
+        <tr>
+          <td><%= e.eventType %></td>
+          <td><%= e.location %></td>
+          <td><%= e.startTime %></td>
+          <td><a href="/events/<%= e._id %>">DETAILS</a></td>
+          <td>
+            <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
+            <button type="submit" id="deletebtn">X</button>
             </form>
-            <%= e.event %>
-            --
-            <a href="/events/<%= idx %>">Edit Event</a>
-        </div><br>
-        <% }) %>
-        <% } else { %>
-            <h5>No events have been created</h5>
-
-    <% } %>
-
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<% }) %>
+  <% } else { %>
+    <h5>No events have been created</h5>
+<% } %>
 
 <%- include('../partials/footer') %>
