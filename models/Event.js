@@ -8,7 +8,7 @@ const eventSchema = new Schema({
     },
     eventType: {
         type: String,
-        enum: ["Trail Run", "Cleanup"],
+        enum: ["Group Run", "Cleanup"],
         default: "Cleanup"
     },
  	startTime: {
@@ -24,8 +24,8 @@ const eventSchema = new Schema({
     miles: {
         type: Number
     },
-    imageURL: {
-        type: String
+    archive: {
+        type: Boolean
     },
 
 });
