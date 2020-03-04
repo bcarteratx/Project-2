@@ -36,7 +36,7 @@ function create(req, res) {
   });
 }
 
-function newEvent(req, res) {
+function newEvent(req, res, event) {
   res.render('events/new', { user: req.user, event});
 }
 

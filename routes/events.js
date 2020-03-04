@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const eventsCtrl = require('../controllers/events');
 
-router.get('/', eventsCtrl.index);
-router.get('/new', eventsCtrl.new);
-router.get('/:id', eventsCtrl.show);
-router.post('/', isLoggedIn, eventsCtrl.create);
-router.delete('/:id', isLoggedIn, eventsCtrl.deleteOne);
+router.get('/events', eventsCtrl.index);
+router.get('/events/new', eventsCtrl.new);
+router.get('/events/:id', eventsCtrl.show);
+router.post('/events', isLoggedIn, eventsCtrl.create);
+router.delete('/events/:id', isLoggedIn, eventsCtrl.deleteOne);
 
 
 
