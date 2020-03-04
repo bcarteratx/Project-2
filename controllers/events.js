@@ -1,5 +1,7 @@
 const Event = require("../models/event");
 
+
+
 module.exports = {
   index,
   create,
