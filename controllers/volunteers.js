@@ -23,23 +23,23 @@ function index(req, res, next) {
 
 function create(req, res) {
   console.log(req.body)
-  const Volunteer = new Volunteer(req.body);
+  const volunteer = new Volunteer(req.body);
   volunteer.save(function(err) {
-    if (err) return res.render('volunteers/new', {user: req.user, volunteers});
+    if (err) return res.render('volunteers/new', {user: req.user, volunteer});
     console.log(volunteer);
     res.redirect('/volunteers');
   });
 }
 
 function newVolunteer(req, res) {
-  res.render('volunteers/new', { user: req.user, volunteers});
+  res.render('volunteers/new', { user: req.user, volunteer});
 }
 
 function addToVolunteers(req, res) {
     Event.findById(req.params.id, function(err, event) {
       event.volunteers.push(req.body.volunteerId);
       event.save(function(err) {
-        res.redirect(`/event/${event._id}`);
+        res.redirect(`/event/${event._id, event}`);
       });
     });
   }

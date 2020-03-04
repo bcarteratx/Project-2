@@ -8,6 +8,7 @@ module.exports = {
   new: newEvent,
   show,
   deleteOne,
+  showUpdate,
 };
 
 function index(req, res, next) {
@@ -50,4 +51,10 @@ function deleteOne(req, res) {
   Event.findByIdAndDelete(req.params.id, function(err, event) {
     res.redirect('/events');
   });
+}
+
+function showUpdate(req, res) {
+  Event.findById(req.params.id, function(err, event) {
+    res.render('events/edit', {event});
+  })
 }
