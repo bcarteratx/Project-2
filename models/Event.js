@@ -30,6 +30,7 @@ const eventSchema = new Schema({
         type: String,
         default: "TTR_logo.png"
     },
+    volunteers: [{type: Schema.Types.ObjectId, ref: 'Volunteer'}]
 
 });
 

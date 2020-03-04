@@ -2,4 +2,41 @@
 
 <h3>Event Details</h3>
 
+<section id="show-page">
+    <div>Type of Event: </div>
+    <div><%= event.eventType %></div>
+    <div>Location: </div>
+    <div><%= event.location %></div>
+    <div>Trail Length: </div>
+    <div><%= event.miles %></div>
+    <img src="../images/<%= event.img %>">
+</section>
+
+<% if (event.volunteers.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name.</th>
+        <th>Volunteer Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% event.volunteers.forEach((v) => { %>
+        <tr>
+          <td><%= v.name %></td>
+          <td><%= v.hours %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+<form action="/events/<%= event._id%>/volunteers" method="POST">
+  <input type="submit" value="Add Volunteer">
+</form>
+<form action="/events/<%= event._id %>/edit" method="GET">
+  <button type="submit">Change Event Details</button>
+</form>
+<br>
+
 <%- include('../partials/footer') %>

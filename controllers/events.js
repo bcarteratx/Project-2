@@ -1,5 +1,5 @@
 const Event = require("../models/event");
-
+const Volunteer = require('../models/volunteer');
 
 
 module.exports = {
@@ -30,19 +30,19 @@ function create(req, res) {
   console.log(req.body)
   const event = new Event(req.body);
   event.save(function(err) {
-    if (err) return res.render('events/new', {user: req.user});
+    if (err) return res.render('events/new', {user: req.user, event});
     console.log(event);
     res.redirect('/events');
   });
 }
 
 function newEvent(req, res) {
-  res.render('events/new', { user: req.user});
+  res.render('events/new', { user: req.user, event});
 }
 
 function show(req, res) {
   Event.findById(req.params.id, function(err, event) {
-    res.render('events/show', { user: req.user});
+    res.render('events/show', { user: req.user, event});
   });
 }
 

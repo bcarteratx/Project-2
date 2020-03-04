@@ -4,6 +4,7 @@ module.exports = {
   index,
   create,
   new: newVolunteer,
+  addToVolunteers
 };
 
 function index(req, res, next) {
@@ -31,5 +32,14 @@ function create(req, res) {
 }
 
 function newVolunteer(req, res) {
-  res.render('volunteers/new', { user: req.user});
+  res.render('volunteers/new', { volunteers, user: req.user});
 }
+
+function addToVolunteers(req, res) {
+    Event.findById(req.params.id, function(err, event) {
+      event.volunteers.push(req.body.volunteerId);
+      event.save(function(err) {
+        res.redirect(`/event/${event._id}`);
+      });
+    });
+  }

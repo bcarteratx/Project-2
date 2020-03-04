@@ -2,5 +2,19 @@
 
 <h3>Volunteers Page</h3>
 
+<p>Make sure the Volunteer is not already in the dropdown
+    <select>
+      <% volunteers.forEach(function(v) { %>
+        <option><%= v.name %></option>
+      <% }) %>
+    </select>
+  </p>
+  <form id="add-performer-form" action="/performers" method="POST">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <label>Hours:</label>
+    <input type="text" name="hours">
+    <input type="submit" value="Add Volunteer">
+  </form>
 
 <%- include('../partials/footer') %>
