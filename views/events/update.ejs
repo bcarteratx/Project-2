@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
 <h4>update an Event</h4>
-<form action="/events/<%= event._id %>?_method=PUT" method="POST">
+<form action="/events/update/<%= event._id %>?_method=PUT" method="POST">
   <label>Type of Event</label>
-  <select class="browser-default">
+  <select class="browser-default" name="eventType">
     <option value="<%= event.eventType %>" disabled selected>Currently set to: <%= event.eventType %></option>
     <option value="Cleanup">Cleanup</option>
     <option value="Group Run">Group Run</option>

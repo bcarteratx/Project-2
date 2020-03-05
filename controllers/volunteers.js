@@ -4,7 +4,9 @@ module.exports = {
   index,
   create,
   new: newVolunteer,
-  addToVolunteers
+  delete: deleteOne,
+  addToVolunteers,
+
 };
 
 function index(req, res, next) {
@@ -16,7 +18,7 @@ function index(req, res, next) {
     if (err) return next(err);
     res.render('volunteers/index', { 
         user: req.user,
-        volunteers
+        volunteers,
     });
   });
 }
@@ -36,10 +38,21 @@ function newVolunteer(req, res) {
 }
 
 function addToVolunteers(req, res) {
-    Event.findById(req.params.id, function(err, event) {
-      event.volunteers.push(req.body.volunteerId);
-      event.save(function(err) {
-        res.redirect(`/event/${event._id, event}`);
-      });
+  Event.findById(req.params.id, function(err, event) {
+    event.volunteers.push(req.body.volunteerId);
+    event.save(function(err) {
+      res.redirect(`/event/${event._id, event}`);
     });
-  }
+  });
+}
+
+function deleteOne(req, res) {
+  Volunteer.findByIdAndDelete(req.params.id, function(err, volunteer) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('deleting volunteer');
+    }
+      res.redirect('/volunteers');
+  });
+}

@@ -3,9 +3,17 @@
 <h4>List of Volunteers</h4>
 <br>
 <br>
-<% volunteers.forEach(function(v) { %>
-    <div><%= v.name %></div>
-<% }) %>
+<div class="">
+    <% volunteers.forEach(function(v) { %>
+        <div class=""><%= v.name %></div>
+        <form class="deletebtn volList" action="/volunteers/<%= v._id %>?_method=DELETE" method="POST">
+            <button type="submit" id="deletebtn">X</button>
+        </form>
+        <form class="volList" action="/volunteers/update/<%= v._id %>" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+    <% }) %>
+</div>
 
   
 <h5>Add a Volunteer if not listed above</h5>

@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<h4>update an Volunteer</h4>
+<form action="/volunteers/<%= volunteer._id %>?_method=PUT" method="POST">
+  <label>Name:
+    <input type="text" value="<%= volunteer.name %>" name="location">
+  </label><br>
+  <label>Adult:</label>
+  <select class="browser-default">
+    <option value="<%= volunteer.adult %>" disabled selected>Currently set to: <%= volunteer.adult %></option>
+    <option value="true">Adult</option>
+    <option value="false">Minor</option>
+  </select>
+	<label>Start time:
+	  <input type="datetime-local" value="" name="startTime">
+  </label><br>
+  <label>Volunteers:
+    <input type="text" value="<%= volunteer.volunteers %>" name="volunteers">
+  </label><br>
+  <label>Trash Collected:
+    <input type="text" value="<%= volunteer.trashLbs %>" name="trashLbs">
+  </label><br>
+  <label>Miles Run:
+    <input type="text" value="<%= volunteer.miles %>" name="miles">
+  </label><br>
+  <label>Image file:
+    <input type="text" value="<%= volunteer.img %>" name="img">
+  </label><br>
+    <input type="submit" value="Add Changes">
+</form>
+
+<%- include('../partials/footer') %>
+

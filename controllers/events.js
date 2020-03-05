@@ -68,7 +68,8 @@ function showUpdate(req, res) {
 
 function update(req, res) {
   console.log(req.body);
-  Event.findByIdAndUpdate(req.params.id, function(err, event) {
+  console.log(req.params.id)
+  Event.findByIdAndUpdate(req.params.id, req.body, function(err, event) {
     res.redirect('/events');
   });
 }
