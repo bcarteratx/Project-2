@@ -6,6 +6,8 @@ router.get('/', volunteersCtrl.index);
 router.get('/new', volunteersCtrl.new);
 router.post('/', isLoggedIn, volunteersCtrl.create);
 router.delete('/:id', isLoggedIn, volunteersCtrl.delete);
+router.get('/update/:id', volunteersCtrl.showUpdate);
+router.put('/update/:id', volunteersCtrl.update);
 
 //router.post('/events/:id/volunteers', volunteersCtrl.addToVolunteers);
 

@@ -6,6 +6,8 @@ module.exports = {
   new: newVolunteer,
   delete: deleteOne,
   addToVolunteers,
+  showUpdate,
+  update
 
 };
 
@@ -27,14 +29,14 @@ function create(req, res) {
   console.log(req.body)
   const volunteer = new Volunteer(req.body);
   volunteer.save(function(err) {
-    if (err) return res.render('volunteers/new', {user: req.user, volunteer});
+    if (err) return res.redirect('/volunteers');
     console.log(volunteer);
     res.redirect('/volunteers');
   });
 }
 
 function newVolunteer(req, res) {
-  res.render('volunteers/new', { user: req.user, volunteer});
+  res.render('volunteers', { user: req.user, volunteer});
 }
 
 function addToVolunteers(req, res) {
@@ -56,3 +58,17 @@ function deleteOne(req, res) {
       res.redirect('/volunteers');
   });
 }
+
+function showUpdate(req, res) {
+    Volunteer.findById(req.params.id, function(err, volunteer) {
+      res.render('volunteers/update', {volunteer});
+    })
+  }
+  
+  function update(req, res) {
+    console.log(req.body);
+    console.log(req.params.id)
+    Volunteer.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, volunteer) {
+      res.redirect('/volunteers');
+    });
+  }
