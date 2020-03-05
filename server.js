@@ -6,6 +6,7 @@ const logger = require("morgan");
 // oauth
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 require('dotenv').config();
 
@@ -36,6 +37,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride('_method'));app.use(logger('dev'));
 
 // Oauth middleware: (thanks Jim!)
 app.use(function(req, res, next) {
