@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const volunteersCtrl = require('../controllers/volunteers');
 
-router.get('/volunteers', volunteersCtrl.index);
-router.get('volunteers/new', volunteersCtrl.new);
-router.post('/volunteers', isLoggedIn, volunteersCtrl.create);
+router.get('/', volunteersCtrl.index);
+router.get('/new', volunteersCtrl.new);
+router.post('/', isLoggedIn, volunteersCtrl.create);
 //router.post('/events/:id/volunteers', volunteersCtrl.addToVolunteers);
 
 

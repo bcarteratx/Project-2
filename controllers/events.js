@@ -7,7 +7,7 @@ module.exports = {
   create,
   new: newEvent,
   show,
-  deleteOne,
+  delete: deleteOne,
   showUpdate,
   update
 };
@@ -51,6 +51,11 @@ function show(req, res) {
 
 function deleteOne(req, res) {
   Event.findByIdAndDelete(req.params.id, function(err, event) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('deleting event');
+    }
     res.redirect('/events');
   });
 }

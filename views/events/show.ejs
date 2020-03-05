@@ -2,7 +2,7 @@
 
 <h3>Event Details</h3>
 <form class="deletebtn" action="/events/<%= event._id %>?_method=DELETE" method="POST">
-    <button type="submit" id="deletebtn">Remove Event</button>
+    <button type="submit" id="deletebtn">Delete Event</button>
 </form>
 
 <section id="show-page">
@@ -48,8 +48,8 @@
 <% } %>
 
 </form>
-<form action="/events/<%= event._id %>/update" method="GET">
-  <button type="submit">update Event Details</button>
+<form action="/events/update/<%= event._id %>" method="GET">
+  <button type="submit">Update Event Details</button>
 </form>
 <br>
 
