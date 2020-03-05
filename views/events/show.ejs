@@ -4,6 +4,7 @@
 <form class="deletebtn" action="/events/<%= event._id %>?_method=DELETE" method="POST">
     <button type="submit" id="deletebtn">Remove Event</button>
 </form>
+
 <section id="show-page">
     <div>Type of Event: </div>
     <div><%= event.eventType %></div>
@@ -12,7 +13,20 @@
     <div>Trail Length: </div>
     <div><%= event.miles %></div>
     <img class="show-img" src="../images/<%= event.img %>">
+    <div>Volunteers:</div>
+  <ul>
+    <%- event.volunteers.map(v => 
+      `<li>${v.name} <small>${v.hours}</small></li>`
+    ).join('') %>
+  </ul>
 </section>
+
+<form action="/events/<%= event._id%>/volunteers" method="POST">
+    <select name="performerId">
+      <option value=""></option>
+    </select>
+    <button type="submit">Add to Volunteers</button>
+  </form>
 
 <% if (event.volunteers.length) { %>
   <table>

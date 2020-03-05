@@ -17,13 +17,14 @@ function index(req, res, next) {
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
   let sortKey = req.query.sort || 'name';
   Event.find(modelQuery)
-  .sort(sortKey).exec(function(err, events) {
+  .sort(sortKey).exec(function(err, events, volunteers) {
     if (err) return next(err);
     res.render('events/index', { 
       events,
       name: req.query.name,
       sortKey,
-      user: req.user
+      user: req.user,
+      volunteers
     });
   });
 }
@@ -43,8 +44,8 @@ function newEvent(req, res, event) {
 }
 
 function show(req, res) {
-  Event.findById(req.params.id, function(err, event) {
-    res.render('events/show', { user: req.user, event});
+  Event.findById(req.params.id, function(err, event, volunteers) {
+    res.render('events/show', { user: req.user, event, volunteers});
   });
 }
 
@@ -55,8 +56,8 @@ function deleteOne(req, res) {
 }
 
 function showUpdate(req, res) {
-  Event.findById(req.params.id, function(err, event) {
-    res.render('events/update', {event});
+  Event.findById(req.params.id, function(err, event, volunteers) {
+    res.render('events/update', {event, volunteers});
   })
 }
 
