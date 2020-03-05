@@ -3,33 +3,31 @@
 <h4>List of Volunteers</h4>
 <br>
 <br>
-    
-      <% volunteers.forEach(function(v) { %>
-        <div><%= v.name %></div>
-      <% }) %>
-  </p>
+<% volunteers.forEach(function(v) { %>
+    <div><%= v.name %></div>
+<% }) %>
+
   
-  <h5>Add a Volunteer if not listed above</h5>
-  <form action="/volunteers" method="POST">
-    </div>
-      <label>Name:
+<h5>Add a Volunteer if not listed above</h5>
+<form action="/volunteers" method="POST">
+    <label>Name:
         <input type="text" name="name">
-      </label><br>
-      <label>Adult true/false:
+    </label><br>
+    <label>Adult true/false:
         <input type="text" name="adult">
-      </label><br>
-      <label>Email:
+    </label><br>
+    <label>Email:
         <input type="text" name="email">
     </label><br>
     <label>Form Signed on:
       <input type="text" name="formSigned">
-        </label><br>
+    </label><br>
     <label>Form Expires on:
       <input type="text" name="formExpires">
-        </label><br>
+    </label><br>
     <label>Volunteer hours:
       <input type="text" name="hours">
-        </label><br>
+    </label><br>
     <input type="submit" value="Add Volunteer">
   </form>
   

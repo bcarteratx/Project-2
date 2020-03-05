@@ -4,26 +4,18 @@ body {
   background-color: rgb(255, 255, 255) ;
 }
 
-a {
-  display: inline;
-  margin: 30px;
-}
-
 p {
   color: rgb(147, 163, 177);
 }
 
-#deletebtn {
+.deletebtn {
   background-color: red;
   color: white;
 }
+
 .left {
   display: inline;
   margin: auto;
-}
-
-.card-action {
-  display: inline;
 }
 
 .show-img {
@@ -32,12 +24,11 @@ p {
 }
 
 .logo {
-  position: relative;
+  position: absolute;
   width: 400px;
   height: 400px;
 }
 
-/* resize images */
 .logo img {
   width: 100%;
   height: auto;

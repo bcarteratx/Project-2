@@ -9,6 +9,7 @@ module.exports = {
   show,
   deleteOne,
   showUpdate,
+  update
 };
 
 function index(req, res, next) {
@@ -55,6 +56,13 @@ function deleteOne(req, res) {
 
 function showUpdate(req, res) {
   Event.findById(req.params.id, function(err, event) {
-    res.render('events/edit', {event});
+    res.render('events/update', {event});
   })
+}
+
+function update(req, res) {
+  console.log(req.body);
+  Event.findByIdAndUpdate(req.params.id, function(err, event) {
+    res.redirect('/events');
+  });
 }

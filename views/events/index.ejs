@@ -17,14 +17,10 @@
         </div>
         <div class="card-action">
           <a href="/events/<%= e._id %>">DETAILS</a>
-          <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
-          <button type="submit" id="deletebtn">X</button>
         </div>
       </div>
     </div>
-  </div>  
-</form>
-          
+  </div>          
 <% }) %>
   <% } else { %>
     <h5>No events have been created</h5>
