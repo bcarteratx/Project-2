@@ -13,9 +13,6 @@ const eventSchema = new Schema({
  	startTime: {
         type: Date,
     },
-    volunteers: {
-        type: String,
-    },
     trashLbs: {
         type: Number
     },
@@ -29,8 +26,7 @@ const eventSchema = new Schema({
         type: String,
         default: "TTR_logo.png"
     },
-    volunteers: [{type: Schema.Types.ObjectId, ref: 'Volunteer'}]
-
+    volunteers: [{type: Schema.Types.ObjectId, ref: 'Volunteer'}]    
 });
 
 module.exports = mongoose.model("Event", eventSchema);

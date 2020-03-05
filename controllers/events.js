@@ -44,8 +44,16 @@ function newEvent(req, res, event) {
 }
 
 function show(req, res) {
-  Event.findById(req.params.id, function(err, event, volunteers) {
-    res.render('events/show', { user: req.user, event, volunteers});
+  Event.findOne({_id: req.params.id})
+  .populate('Volunteer').exec(function(err, event) {
+    console.log(event);
+    Volunteer.find({_id: {$nin: event.volunteers}})
+    .exec(function(err, volunteers) {
+      console.log(volunteers);
+      res.render('events/show', {
+        user: req.user, event, volunteers
+      });
+    });
   });
 }
 

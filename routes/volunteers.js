@@ -5,6 +5,8 @@ const volunteersCtrl = require('../controllers/volunteers');
 router.get('/', volunteersCtrl.index);
 router.get('/new', volunteersCtrl.new);
 router.post('/', isLoggedIn, volunteersCtrl.create);
+router.post('/events/:id/volunteers', volunteersCtrl.addToEvent);
+
 router.delete('/:id', isLoggedIn, volunteersCtrl.delete);
 router.get('/update/:id', volunteersCtrl.showUpdate);
 router.put('/update/:id', volunteersCtrl.update);

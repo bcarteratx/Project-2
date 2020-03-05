@@ -4,15 +4,19 @@
 <form class="deletebtn" action="/events/<%= event._id %>?_method=DELETE" method="POST">
     <button type="submit" id="deletebtn">Delete Event</button>
 </form>
-
+</form>
+<form action="/events/update/<%= event._id %>" method="GET">
+  <button type="submit">Update Event Details</button>
+</form>
+<br>
 <section id="show-page">
+    <img class="show-img" src="../images/<%= event.img %>">
     <div>Type of Event: </div>
     <div><%= event.eventType %></div>
     <div>Location: </div>
     <div><%= event.location %></div>
     <div>Trail Length: </div>
     <div><%= event.miles %></div>
-    <img class="show-img" src="../images/<%= event.img %>">
     <div>Volunteers:</div>
   <ul>
     <%- event.volunteers.map(v => 
@@ -21,12 +25,14 @@
   </ul>
 </section>
 
-<form action="/events/<%= event._id%>/volunteers" method="POST">
-    <select name="performerId">
-      <option value=""></option>
+
+<form action="/events/<%= event._id%>" method="POST">
+    <select class="browser-default" name="volunteerId">
+      <%- volunteers.map(v => `<option value="${v._id}">${v.name}</option>`).join('') %>
     </select>
-    <button type="submit">Add to Volunteers</button>
-  </form>
+    <button type="submit">Add Volunteer to Event</button>
+</form>
+
 
 <% if (event.volunteers.length) { %>
   <table>
@@ -47,10 +53,5 @@
   </table>
 <% } %>
 
-</form>
-<form action="/events/update/<%= event._id %>" method="GET">
-  <button type="submit">Update Event Details</button>
-</form>
-<br>
 
 <%- include('../partials/footer') %>

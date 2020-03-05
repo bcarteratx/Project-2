@@ -1,4 +1,5 @@
 const Volunteer = require("../models/volunteer.js");
+const Event = require("../models/event")
 
 module.exports = {
   index,
@@ -7,8 +8,8 @@ module.exports = {
   delete: deleteOne,
   addToVolunteers,
   showUpdate,
-  update
-
+  update,
+  addToEvent
 };
 
 function index(req, res, next) {
@@ -70,5 +71,14 @@ function showUpdate(req, res) {
     console.log(req.params.id)
     Volunteer.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, volunteer) {
       res.redirect('/volunteers');
+    });
+  }
+
+  function addToEvent(req, res) {
+    Event.findById(req.params.id, function (err, event) {
+      event.volunteers.push(req.body.volunteerId);
+      event.save(function (err) {
+        res.redirect(`/events/${event._id}`);
+      });
     });
   }
