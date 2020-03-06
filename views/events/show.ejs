@@ -18,6 +18,8 @@
     <div>Trail Length: </div>
     <div><%= event.miles %></div>
     <div>Volunteers:</div>
+    <div><%= event.volunteers %></div>
+    
   <ul>
     <%- event.volunteers.map(v => 
       `<li>${v.name} <small>${v.hours}</small></li>`

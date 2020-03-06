@@ -66,8 +66,8 @@ function showUpdate(req, res) {
 
   function addToEvent(req, res) {
       Event.findById(req.params.id, function (err, event) {
-        console.log(event)
-      event.volunteers.push(req.body.volunteerId);
+          event.volunteers.push(req.body.volunteerId);
+          console.log(event.volunteers)
       event.save(function (err) {
         res.redirect(`/events/${event._id}`);
       });
