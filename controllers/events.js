@@ -1,4 +1,4 @@
-const Event = require("../models/tempEvent");
+const Event = require("../models/event");
 const Volunteer = require('../models/volunteer');
 
 
