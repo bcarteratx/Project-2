@@ -1,5 +1,5 @@
 const Volunteer = require("../models/volunteer.js");
-const Event = require("../models/event")
+const Event = require("../models/tempEvent")
 
 module.exports = {
   index,
