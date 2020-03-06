@@ -1,17 +1,18 @@
 body {
   font-family: sans-serif;
   color: gray;
-  background-color: rgb(255, 255, 255) ;
+  background-color: #f9f8f1 ;
+}
+
+.nav-color {
+background-color: #f7916f;}
+
+.nav-wrapper {
 }
 
 p {
-  color: rgb(147, 163, 177);
+  color: rgb(101, 115, 126);
 }
-
-/* .deletebtn {
-  background-color: red;
-  color: white;
-} */
 
 .volList {
   display: inline;
@@ -28,10 +29,31 @@ p {
   height: 300px;
 }
 
+.main-content {
+  width: 150%;
+  margin: auto;
+}
+
+.landing {
+  position: relative;
+}
+
 .logo {
-  position: absolute;
+  position: fixed;
   width: 400px;
   height: 400px;
+  top: 50%;
+  left: 50%;
+  margin: -200px 0 0 -200px;
+}
+
+.mission {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin: 250px 0 0 -180px;
 }
 
 .logo img {

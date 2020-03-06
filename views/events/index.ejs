@@ -1,29 +1,32 @@
 <%- include('../partials/header') %>
-
-<h3>Events Page</h3>
-<% if (events.length) { %>
-<% events.forEach(function(e, idx) { %>   
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="../images/<%= e.img %>">
-          <span class="card-title"><%= e.eventType %> at <%= e.location %></span>
+<div class="main-wrapper">
+    <div class="main-content">
+    <h3>See Our Latest Events</h3>
+    <% if (events.length) { %>
+    <% events.forEach(function(e, idx) { %>   
+    <div class="row">
+        <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+            <img src="../images/<%= e.img %>">
+            <span class="card-title"><%= e.eventType %> at <%= e.location %></span>
+            </div>
+            <div class="card-content">
+            <p><%= e.startTime %><br>
+            We ran <%= e.miles %> miles, and picked up <%= e.trashLbs %> pounds of trash!
+            </p>
+            </div>
+            <div class="card-action">
+            <a href="/events/<%= e._id %>">DETAILS</a>
+            </div>
         </div>
-        <div class="card-content">
-          <p><%= e.startTime %><br>
-           We ran <%= e.miles %> miles, and picked up <%= e.trashLbs %> pounds of trash!
-          </p>
         </div>
-        <div class="card-action">
-          <a href="/events/<%= e._id %>">DETAILS</a>
-        </div>
-      </div>
+    </div>          
+    <% }) %>
+    <% } else { %>
+        <h5>No events have been created</h5>
+    <% } %>
     </div>
-  </div>          
-<% }) %>
-  <% } else { %>
-    <h5>No events have been created</h5>
-<% } %>
+</div>
 
 <%- include('../partials/footer') %>

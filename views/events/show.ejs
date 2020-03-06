@@ -34,25 +34,4 @@
     <button type="submit">Add Volunteer to Event</button>
 </form>
 
-
-<% if (event.volunteers.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name.</th>
-        <th>Volunteer Hours</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% event.volunteers.forEach((v) => { %>
-        <tr>
-          <td><%= v.name %></td>
-          <td><%= v.hours %></td>
-        </tr>
-      <% }); %>
-    </tbody>
-  </table>
-<% } %>
-
-
 <%- include('../partials/footer') %>
