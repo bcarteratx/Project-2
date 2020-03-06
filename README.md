@@ -34,6 +34,9 @@
 
 ### ***Screenshots***
 
+###### Wireframe
+![Wireframe](public/images/Wireframe.png)
+
 ###### Entity Relationship Diagram
 ![ERD](public/images/ERD.png)
 
