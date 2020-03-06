@@ -8,6 +8,13 @@ body {
 background-color: #f7916f;}
 
 .nav-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.right {
+  text-align: right;
 }
 
 p {
@@ -30,8 +37,8 @@ p {
 }
 
 .main-content {
-  width: 150%;
-  margin: auto;
+  width: 110%;
+  margin: 40px;
 }
 
 .landing {

@@ -16,12 +16,15 @@
   <div class="navbar-fixed">
     <nav class="nav-color">
       <div class="nav-wrapper">
-        <a href="" class="brand-logo left">TTR</a>
         <ul class="right">
-            <div>
-                <a href="/events">Events Archive</a>
-            </div> 
-        </ul>
+            <li>
+            <% if (user) { %>
+              <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+              <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <% } %>
+            </li>
+          </ul>
       </div>
     </nav>
   </div>
