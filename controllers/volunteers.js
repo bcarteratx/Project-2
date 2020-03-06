@@ -6,7 +6,6 @@ module.exports = {
   create,
   new: newVolunteer,
   delete: deleteOne,
-  addToVolunteers,
   showUpdate,
   update,
   addToEvent
@@ -40,15 +39,6 @@ function newVolunteer(req, res) {
   res.render('volunteers', { user: req.user, volunteer});
 }
 
-function addToVolunteers(req, res) {
-  Event.findById(req.params.id, function(err, event) {
-    event.volunteers.push(req.body.volunteerId);
-    event.save(function(err) {
-      res.redirect(`/event/${event._id, event}`);
-    });
-  });
-}
-
 function deleteOne(req, res) {
   Volunteer.findByIdAndDelete(req.params.id, function(err, volunteer) {
     if (err) {
@@ -76,6 +66,7 @@ function showUpdate(req, res) {
 
   function addToEvent(req, res) {
     Event.findById(req.params.id, function (err, event) {
+        console.log(event)
       event.volunteers.push(req.body.volunteerId);
       event.save(function (err) {
         res.redirect(`/events/${event._id}`);
