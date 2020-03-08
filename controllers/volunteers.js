@@ -58,7 +58,7 @@ function showUpdate(req, res) {
   
   function update(req, res) {
     console.log(req.body);
-    console.log(req.params.id)
+    console.log(req.params.id);
     Volunteer.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, volunteer) {
       res.redirect('/volunteers');
     });
