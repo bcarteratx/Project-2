@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h4>update an Volunteer</h4>
-<form action="/volunteers/<%= volunteer._id %>?_method=PUT" method="POST">
+<form action="/volunteers/update/<%= volunteer._id %>?_method=PUT" method="POST">
   <label>Name:
     <input type="text" value="<%= volunteer.name %>" name="name">
   </label><br>

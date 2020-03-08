@@ -46,10 +46,10 @@ function newEvent(req, res, event) {
 function show(req, res) {
   Event.findOne({_id: req.params.id})
   .populate('Volunteer').exec(function(err, event) {
-    console.log(event);
+    console.log(req.body);
     Volunteer.find({_id: {$nin: event.volunteers}})
     .exec(function(err, volunteers) {
-      console.log(volunteers);
+      //console.log(volunteers);
       res.render('events/show', {
         user: req.user, event, volunteers
       });
